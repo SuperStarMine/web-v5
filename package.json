@@ -1,5 +1,5 @@
 {
-	"name": "my",
+	"name": "SSM-Web5",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -21,6 +21,7 @@
 		"eslint-plugin-svelte3": "^4.0.0",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
+		"stylus": "^0.59.0",
 		"svelte": "^3.53.1",
 		"svelte-check": "^2.9.2",
 		"svelte-preprocess": "^4.10.7",
