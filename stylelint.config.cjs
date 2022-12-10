@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     // add more generic rulesets here, such as:
     // "stylelint-config-standard",
+    'stylelint-config-recess-order',
     'stylelint-stylus/standard',
   ],
   rules: {
