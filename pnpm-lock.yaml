@@ -18,7 +18,6 @@ specifiers:
   stylus: ^0.59.0
   svelte: ^3.55.0
   svelte-check: ^2.10.2
-  svelte-preprocess: ^4.10.7
   tslib: ^2.4.1
   typescript: ^4.9.4
   vite: ^4.0.1
@@ -43,7 +42,6 @@ devDependencies:
   stylus: 0.59.0
   svelte: 3.55.0
   svelte-check: 2.10.2_emdkbcyw76wapqaqauausj4cnm
-  svelte-preprocess: 4.10.7_ll4dhphs2dabj43hda7bbo3csa
   tslib: 2.4.1
   typescript: 4.9.4
   vite: 4.0.1_stylus@0.59.0
