@@ -8,7 +8,7 @@
 
 <style lang="stylus">
   :global(html, body)
-    margin: 0
-    width: 100%
-    height: 100%
+    width 100%
+    height 100%
+    margin 0
 </style>
