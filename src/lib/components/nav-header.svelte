@@ -20,7 +20,7 @@
 <svelte:body on:mousemove={handleMouse} />
 
 <header>
-  <img class="logo" src="ssm-logo-landscape.svg" alt="" />
+  <img class="logo" width="1572" height="600" src="ssm-logo-landscape.svg" alt="" />
   <button>
     メニュー
     <div class="arrow" bind:this={arrow}>
@@ -48,6 +48,7 @@
     padding 0 (@height / 2)
     background-color #fff
   .logo
+    width auto
     height 60%
   button
     display flex
