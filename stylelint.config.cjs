@@ -7,6 +7,7 @@ module.exports = {
   ],
   rules: {
     // override/add rules settings here, such as:
-    // "stylus/declaration-colon": "never"
+    'stylus/selector-list-comma': 'always',
+    'stylus/selector-list-comma-newline-after': 'never-multi-line',
   },
 };

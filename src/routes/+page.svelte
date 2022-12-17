@@ -12,7 +12,4 @@
 />
 
 
-<style lang="stylus">
-  :global(body)
-    background-color #e5e5e5
-</style>
+
