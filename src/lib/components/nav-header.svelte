@@ -13,6 +13,10 @@
   }
 </script>
 
+<svelte:head>
+  <meta name="theme-color" content="#fff" />
+</svelte:head>
+
 <svelte:body on:mousemove={handleMouse} />
 
 <header>
