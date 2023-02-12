@@ -1,0 +1,26 @@
+{
+  "apiFields": [
+    {
+      "idValue": "u66q4jPNmP",
+      "fieldId": "title",
+      "name": "タイトル",
+      "kind": "text",
+      "required": true,
+      "isUnique": false
+    },
+    { "fieldId": "date", "name": "日付", "kind": "date", "required": true, "dateFormat": true },
+    {
+      "fieldId": "link",
+      "name": "リンク",
+      "kind": "text",
+      "patternMatchValidation": {
+        "regexp": {
+          "pattern": "https?:\\/\\/[-_.!~*\\'()a-zA-Z0-9;\\/?:\\@&=+\\$,%#\\u3000-\\u30FE\\u4E00-\\u9FA0\\uFF01-\\uFFE3]+",
+          "flags": "g"
+        }
+      },
+      "isUnique": false
+    }
+  ],
+  "customFields": []
+}
