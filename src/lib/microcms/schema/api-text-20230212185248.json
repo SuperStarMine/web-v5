@@ -1,0 +1,63 @@
+{
+  "apiFields": [
+    {
+      "idValue": "PLUrNer15r",
+      "fieldId": "title",
+      "name": "ページ名",
+      "kind": "text",
+      "description": "この項目はメモ用で実際に反映されません。サイト側からはコンテンツID(左上)を元に取得されます。",
+      "required": false,
+      "isUnique": false
+    },
+    {
+      "fieldId": "dictionary",
+      "name": "翻訳リスト",
+      "kind": "repeater",
+      "required": true,
+      "customFieldCreatedAtList": ["2023-02-11T13:18:54.545Z"]
+    }
+  ],
+  "customFields": [
+    {
+      "createdAt": "2023-02-11T13:18:54.545Z",
+      "fieldId": "item",
+      "name": "項目",
+      "fields": [
+        {
+          "idValue": "9uvXqxHlsz",
+          "fieldId": "key",
+          "name": "キー",
+          "kind": "text",
+          "description": "一つのページ内でユニークである必要があります。重複している場合はより上にあるものが優先されます。",
+          "required": true,
+          "patternMatchValidation": { "regexp": { "pattern": "[0-9a-zA-Z_.]+", "flags": "g" } }
+        },
+        {
+          "idValue": "ZMUCeg9Lrg",
+          "fieldId": "description",
+          "name": "説明",
+          "kind": "text",
+          "description": "(サイト上には表示されません)",
+          "required": false
+        },
+        {
+          "idValue": "Gai6YkwmGn",
+          "fieldId": "ja",
+          "name": "日本語",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "idValue": "z0LbA-Kelh",
+          "fieldId": "en",
+          "name": "英語",
+          "kind": "text",
+          "required": true
+        }
+      ],
+      "position": [["9uvXqxHlsz", "ZMUCeg9Lrg", "Gai6YkwmGn", "z0LbA-Kelh"]],
+      "updatedAt": "2023-02-12T09:33:30.822Z",
+      "viewerGroup": "CBM"
+    }
+  ]
+}
