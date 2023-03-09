@@ -1,61 +1,40 @@
 <script lang="ts">
-  import { cdate } from 'cdate';
   import type { PageData } from './$types';
-  import NavHeader from '$lib/components/nav-header.svelte';
-  import SlideHero from '$lib/components/slide-hero.svelte';
+  import './global.stylus';
 
-  let showAllNews = false;
   export let data: PageData;
+
+  // import Cframe from "$lib/components/deprecated/common-frame.svelte";
+  import Nheader from "$lib/components/deprecated/nav-header.svelte";
+  // import Static from "$lib/components/deprecated/static-content.svelte";
+  // import Dlist from "$lib/components/deprecated/date-list.svelte";
+  // import HeroS from "$lib/components/deprecated/slide-hero-swiper.svelte";
+  // import Desc from "$lib/components/deprecated/slide-description.svelte";
+  // import Footer from "$lib/components/deprecated/footer.svelte";
+  // import Cards from "$lib/components/deprecated/cards.svelte";
 </script>
 
-<NavHeader
-  targets={[
-    { label: '作品', id: '#works' },
-    { label: 'ニュース', id: '#news' },
-    { label: 'チーム', id: '#about' },
-    { label: '連絡先', id: '#contact' },
-  ]}
-/>
 
-<SlideHero
-  items={[
-    {
-      id: 'necromance',
-      color: '#F7931F',
-      title: 'れーぞく！ネクロマンスちゃん',
-      subtitle: 'れーぞく全方位シューティングゲーム',
-      description: '説明文ここに',
-      buttons: [{ label: 'ティザーサイトへ', url: '#' }],
-    },
-    {
-      id: 'necromance',
-      color: '#F7931F',
-      title: 'れーぞく！ネクロマンスちゃん',
-      subtitle: 'れーぞく全方位シューティングゲーム',
-      description: '説明文ここに',
-      buttons: [{ label: 'ティザーサイトへ', url: '#' }],
-    },
-    {
-      id: 'necromance',
-      color: '#F7931F',
-      title: 'れーぞく！ネクロマンスちゃん',
-      subtitle: 'れーぞく全方位シューティングゲーム',
-      description: '説明文ここに',
-      buttons: [{ label: 'ティザーサイトへ', url: '#' }],
-    },
-  ]}
-/>
-{data.dictionary['games.necromance.title']['ja']}
-
-{#each data.news as item, index}
-  {#if showAllNews || index < 3}
-    <p>
-      {item.title}<br />
-      {cdate(item.date).format('YYYY-MM-DD')}<br />
-      {item.link}<br />
-    </p>
-  {/if}
-{/each}
-<button on:click={() => (showAllNews = !showAllNews)}
-  >{showAllNews ? '最新のお知らせのみ表示' : 'さらにお知らせを表示'}</button
->
+<Nheader/>
+<!-- <main style="--transitionDuration: 500ms;--standardWidth: {$sync.standardWidth}vw"> -->
+<main style="--transitionDuration: 500ms;--standardWidth: 80vw">
+  <!-- {#each settings as {title, subtitle, themeColor, sectionType, contents, id, pairId}}
+    {#if sectionType == "slideHero"}
+      <HeroS contents={contents || settings.find(v => v.pairId == pairId && v.isParent).contents} {globalSettings} {pairId} standardWidth={$sync.standardWidth}/>
+    {:else if sectionType == "slideDesc"}
+      <Desc {contents} {globalSettings} {pairId} standardWidth={$sync.standardWidth}/>
+    {:else if sectionType == "footer"}
+      <Footer {contents}/>
+    {:else if sectionType != "navHeader"}
+      <Cframe {id} {title} {subtitle} {themeColor}>
+        {#if sectionType == "static"}
+          <Static {contents} {globalSettings} standardWidth={$sync.standardWidth}/>
+        {:else if sectionType == "dateList"}
+          <Dlist {contents}/>
+        {:else if sectionType == "cards"}
+          <Cards {contents} {globalSettings} standardWidth={$sync.standardWidth}/>
+        {/if}
+      </Cframe>
+    {/if}
+  {/each} -->
+</main>
