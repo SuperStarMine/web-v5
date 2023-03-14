@@ -3,6 +3,7 @@
 
   let arrow: HTMLElement;
   let angle = 0;
+  let funMode = false;
 
   function handleMouse(event: { clientX: number; clientY: number }) {
     const rect = arrow.getBoundingClientRect();
@@ -29,7 +30,7 @@
         viewBox="0 0 24 24"
         width="24"
         height="24"
-        style="rotate: {angle}deg"
+        style="rotate: {funMode ? angle : 45}deg"
       >
         <path d="M12 2 4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
       </svg>
@@ -70,7 +71,7 @@
     background-color #f7931e
     border-radius 40%
     svg
-      height 50%
+      height 60%
       fill #fff
       rotate 45deg
 </style>
