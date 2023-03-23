@@ -34,6 +34,7 @@
 
 @import '../../styles/_func.styl'
 @import '../../styles/_break.styl'
+@import '../../styles/_layouts.styl'
 
 .characters-section {
   text-align: center;
