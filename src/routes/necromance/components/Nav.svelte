@@ -11,10 +11,7 @@
   <div class="nav__right">
     <div class="nav__menu-button" style="display:none;">
       <svg style="width:40px;height:40px" viewBox="0 0 24 24">
-        <path
-          fill="#56449A"
-          d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"
-        />
+        <path fill="#56449A" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
       </svg>
     </div>
   </div>

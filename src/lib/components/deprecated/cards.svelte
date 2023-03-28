@@ -1,27 +1,27 @@
 <script>
   export let contents, globalSettings, standardWidth;
-  import Picture from "$lib/components/picture.svelte";
+  import Picture from '$lib/components/picture.svelte';
   import { onMount } from 'svelte';
   const socialConsts = {
-          urls: {
-            'twitter':'twitter.com',
-            'facebook':'facebook.com',
-            'note':'note.com',
-            'github':'github.com',
-            'qiita':'qiita.com',
-            'youtube':'www.youtube.com/c',
-            'lastfm':'www.last.fm/ja/user'
-          },
-          aspectRatios: {
-            'twitter':{width: 2499, height: 2032},
-            'facebook':{width: 971, height: 965},
-            'note':{width: 167, height: 188},
-            'github':{width: 362, height: 354},
-            'qiita':{width: 1, height: 1},
-            'youtube':{width: 44, height: 31},
-            'lastfm':{width: 70877, height: 17833}
-          }
-        };
+    urls: {
+      twitter: 'twitter.com',
+      facebook: 'facebook.com',
+      note: 'note.com',
+      github: 'github.com',
+      qiita: 'qiita.com',
+      youtube: 'www.youtube.com/c',
+      lastfm: 'www.last.fm/ja/user',
+    },
+    aspectRatios: {
+      twitter: { width: 2499, height: 2032 },
+      facebook: { width: 971, height: 965 },
+      note: { width: 167, height: 188 },
+      github: { width: 362, height: 354 },
+      qiita: { width: 1, height: 1 },
+      youtube: { width: 44, height: 31 },
+      lastfm: { width: 70877, height: 17833 },
+    },
+  };
   let ch2px, ch, rotateX, rotateY;
   onMount(() => {
     ch = ch2px.getBoundingClientRect().width;
@@ -30,38 +30,60 @@
 
 <div class="card_container" style="--rotateX: {rotateX}deg;--rotateY: {rotateY}deg;">
   {#each contents.cards as card}
-    <div class="card_wrapper" style="--backfaceColor:{card.backfaceColor};--backfaceLogoBrightness: {card.backfaceLogoBrightness};"
-      on:mousemove={
-        e => {
-          const cardClass = e.currentTarget.querySelector('.card').classList;
-          if(!cardClass.contains('isFliping')){
-            rotateX = (((e.clientY - e.currentTarget.getBoundingClientRect().top)/(e.currentTarget.getBoundingClientRect().height / 2) - 1) * 10);
-            rotateY = (((e.clientX - e.currentTarget.getBoundingClientRect().left)/(e.currentTarget.getBoundingClientRect().width / 2) - 1) * -10) + (cardClass.contains('fliped') ? 180 : 0);
-          }
+    <div
+      class="card_wrapper"
+      style="--backfaceColor:{card.backfaceColor};--backfaceLogoBrightness: {card.backfaceLogoBrightness};"
+      on:mousemove={(e) => {
+        const cardClass = e.currentTarget.querySelector('.card').classList;
+        if (!cardClass.contains('isFliping')) {
+          rotateX =
+            ((e.clientY - e.currentTarget.getBoundingClientRect().top) /
+              (e.currentTarget.getBoundingClientRect().height / 2) -
+              1) *
+            10;
+          rotateY =
+            ((e.clientX - e.currentTarget.getBoundingClientRect().left) /
+              (e.currentTarget.getBoundingClientRect().width / 2) -
+              1) *
+              -10 +
+            (cardClass.contains('fliped') ? 180 : 0);
         }
-      }
-      on:click={
-        e => {
-          const cardClass = e.currentTarget.querySelector('.card').classList;
-          const backfaceClass = e.currentTarget.querySelector('.backface').classList;
-          if(!cardClass.contains('isFliping') && !(e.currentTarget.querySelector('.card .lower').contains(e.target))){
-            cardClass.add('isFliping');
-            backfaceClass.add('isFliping');
-            setTimeout(() => {
-              cardClass.remove('isFliping');
-              backfaceClass.remove('isFliping');
-              cardClass[!cardClass.contains('fliped') ? 'add' : 'remove']('fliped');
-              backfaceClass[!backfaceClass.contains('fliped') ? 'add' : 'remove']('fliped');
-              rotateY += 180;
-            }, 600);
-          }
+      }}
+      on:click={(e) => {
+        const cardClass = e.currentTarget.querySelector('.card').classList;
+        const backfaceClass = e.currentTarget.querySelector('.backface').classList;
+        if (
+          !cardClass.contains('isFliping') &&
+          !e.currentTarget.querySelector('.card .lower').contains(e.target)
+        ) {
+          cardClass.add('isFliping');
+          backfaceClass.add('isFliping');
+          setTimeout(() => {
+            cardClass.remove('isFliping');
+            backfaceClass.remove('isFliping');
+            cardClass[!cardClass.contains('fliped') ? 'add' : 'remove']('fliped');
+            backfaceClass[!backfaceClass.contains('fliped') ? 'add' : 'remove']('fliped');
+            rotateY += 180;
+          }, 600);
         }
-      }>
+      }}
+    >
       <div class="card">
         <div class="upper">
           {#if card.imageId}
             <div class="left">
-              <Picture imgClass="card_left-img card_img" {contents} {globalSettings} imageId={card.imageId} sizes="(min-aspect-ratio: 16/9) {standardWidth / 3 / 3}vw, {standardWidth / 2 / 3}vw, (max-aspect-ratio: 1/1) {standardWidth * 0.8 / 3}vw, (max-aspect-ratio: 3/4) {standardWidth / 3}vw" width='1' height='1'/>
+              <Picture
+                imgClass="card_left-img card_img"
+                {contents}
+                {globalSettings}
+                imageId={card.imageId}
+                sizes="(min-aspect-ratio: 16/9) {standardWidth / 3 / 3}vw, {standardWidth /
+                  2 /
+                  3}vw, (max-aspect-ratio: 1/1) {(standardWidth * 0.8) /
+                  3}vw, (max-aspect-ratio: 3/4) {standardWidth / 3}vw"
+                width="1"
+                height="1"
+              />
             </div>
           {/if}
           <div class="right {card.imageId ? '' : 'noImage'}">
@@ -72,16 +94,38 @@
               {/each}
             </div>
             <div class="logo">
-              <div bind:this={ch2px} style="opacity:0;width:1ch"></div>
-              <Picture imgClass="card_img" {contents} {globalSettings} imageDirectory={globalSettings.imageDirectory} imageId={contents.logoImageId} imageExtensionsShort={contents.logoImageExtensionsShort} sizes="{3 * ch}px" width='{contents.logoAspectRatio.width}' height='{contents.logoAspectRatio.height}'/>
+              <div bind:this={ch2px} style="opacity:0;width:1ch" />
+              <Picture
+                imgClass="card_img"
+                {contents}
+                {globalSettings}
+                imageDirectory={globalSettings.imageDirectory}
+                imageId={contents.logoImageId}
+                imageExtensionsShort={contents.logoImageExtensionsShort}
+                sizes="{3 * ch}px"
+                width={contents.logoAspectRatio.width}
+                height={contents.logoAspectRatio.height}
+              />
             </div>
           </div>
         </div>
         <div class="lower">
           {#each card.accounts as account}
-            <a class="social-button {account.name} {card.accounts.length > 2 ? 'iconOnly' : ''}"
-            href="{account.customUrl ? account.customUrl : `https://${socialConsts.urls[account.name]}/${account.id}`}" style="--popupContent: '{(account.name == 'twitter' ? '@' : '') + account.id}'">
-              <img src="{globalSettings.imageDirectory}{account.name == 'youtube' ? 'youtube-white' : account.name}.svg" alt="{account.name}のアイコン" width={socialConsts.aspectRatios[account.name].width} height={socialConsts.aspectRatios[account.name].height}>
+            <a
+              class="social-button {account.name} {card.accounts.length > 2 ? 'iconOnly' : ''}"
+              href={account.customUrl
+                ? account.customUrl
+                : `https://${socialConsts.urls[account.name]}/${account.id}`}
+              style="--popupContent: '{(account.name == 'twitter' ? '@' : '') + account.id}'"
+            >
+              <img
+                src="{globalSettings.imageDirectory}{account.name == 'youtube'
+                  ? 'youtube-white'
+                  : account.name}.svg"
+                alt="{account.name}のアイコン"
+                width={socialConsts.aspectRatios[account.name].width}
+                height={socialConsts.aspectRatios[account.name].height}
+              />
               <span class="id">
                 {account.id}
               </span>
@@ -90,7 +134,17 @@
         </div>
       </div>
       <div class="backface">
-        <Picture pictureClass="backface_logo_picture" imgClass="backface_logo" {contents} {globalSettings} imageDirectory={globalSettings.imageDirectory} imageId={contents.backfaceLogoImageId} imageExtensionsShort={contents.backfaceLogoImageExtensionsShort} width={contents.backfaceLogoAspectRatio.width} height={contents.backfaceLogoAspectRatio.height}/>
+        <Picture
+          pictureClass="backface_logo_picture"
+          imgClass="backface_logo"
+          {contents}
+          {globalSettings}
+          imageDirectory={globalSettings.imageDirectory}
+          imageId={contents.backfaceLogoImageId}
+          imageExtensionsShort={contents.backfaceLogoImageExtensionsShort}
+          width={contents.backfaceLogoAspectRatio.width}
+          height={contents.backfaceLogoAspectRatio.height}
+        />
       </div>
     </div>
   {/each}
