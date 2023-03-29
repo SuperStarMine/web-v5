@@ -1,10 +1,10 @@
 <script lang="ts">
   import IntersectionObserver from 'svelte-intersection-observer';
   /** 半角スペースで分割した文字列 */
-  export let string = '';
-  export let align = '';
-  export let slideIn = '';
-  export let variant: 'normal' | 'necro' = 'normal';
+  export let string = '',
+    align = '',
+    slideIn = '',
+    variant: 'normal' | 'necro' = 'normal';
   let element: any;
   let intersecting: any;
 </script>
