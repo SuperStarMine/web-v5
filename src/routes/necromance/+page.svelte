@@ -34,7 +34,6 @@
   <meta property="og:image" content={meta.image} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@necromance_chan" />
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </svelte:head>
 
 <Nav />

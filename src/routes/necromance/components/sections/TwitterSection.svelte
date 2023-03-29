@@ -3,6 +3,10 @@
   import Section from '../Section.svelte';
 </script>
 
+<svelte:head>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</svelte:head>
+
 <Section>
   <div class="twitter-section">
     <div class="content">
@@ -33,7 +37,7 @@
 .twitter-section
   text-align center
 
-  &__widget
+  :global(.twitter-timeline)
     margin 0 auto
 
   &__followText
