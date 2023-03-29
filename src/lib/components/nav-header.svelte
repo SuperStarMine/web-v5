@@ -18,11 +18,11 @@
   <meta name="theme-color" content="#fff" />
 </svelte:head>
 
-<svelte:body on:mousemove={handleMouse} />
+<!-- <svelte:body on:mousemove={handleMouse} /> -->
 
 <header>
   <img class="logo" width="1572" height="600" src="ssm-logo-landscape.svg" alt="" />
-  <button>
+  <!-- <button>
     メニュー
     <div class="arrow" bind:this={arrow}>
       <svg
@@ -35,7 +35,7 @@
         <path d="M12 2 4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
       </svg>
     </div>
-  </button>
+  </button> -->
 </header>
 
 <style lang="stylus">

@@ -1,4 +1,4 @@
-<slot></slot>
+<slot />
 
 <style lang="stylus">
   /*** The new CSS Reset - version 1.0.0 (last updated 8.7.2021) ***/
