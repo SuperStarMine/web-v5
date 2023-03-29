@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </svelte:head>
 
 <Section>
@@ -15,7 +15,7 @@
         <a
           class="twitter-timeline"
           data-width="400"
-          data-height="400"
+          data-height="533"
           data-chrome="noheader nofooter noborders"
           href="https://twitter.com/necromance_chan?ref_src=twsrc%5Etfw"
           >Tweets by necromance_chan</a
