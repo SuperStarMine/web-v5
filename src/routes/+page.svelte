@@ -109,6 +109,8 @@
   main
     margin: 0 auto
     width 1000px
+    overflow-x hidden
+
     @media (max-width: 1111.11px)
       width 90%
   :global(body)
